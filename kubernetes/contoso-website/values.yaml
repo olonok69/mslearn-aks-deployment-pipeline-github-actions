@@ -8,3 +8,5 @@ service:
   port: 443
 serviceAccount:
   create: false
+autoscaling:
+  enabled: false
