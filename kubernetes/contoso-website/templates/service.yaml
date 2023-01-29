@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "contoso-website.fullname" . }}
-  labels:
-    {{- include "contoso-website.labels" . | nindent 4 }}
+  name: contoso-website
+  namespace: {{ default "staging" .Release.Namespace }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: 80
       protocol: TCP
+      targetPort: http
       name: http
   selector:
-    {{- include "contoso-website.selectorLabels" . | nindent 4 }}
+    app: contoso-website
+  type: ClusterIP
