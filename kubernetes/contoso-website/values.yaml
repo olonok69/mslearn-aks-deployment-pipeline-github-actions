@@ -4,3 +4,5 @@ image:
   tag: latest
 dns:
   name: 1d99e138af88483d9ce5.eastus.aksapp.io
+service:
+  port: 443
